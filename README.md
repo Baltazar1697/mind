@@ -1,6 +1,6 @@
 # Mind
 
-**TODO: Add description**
+**mix run --no-halt \ curl localhost:4000\bot**
 
 ## Installation
 

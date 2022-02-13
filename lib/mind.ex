@@ -1,18 +1,22 @@
 defmodule Mind do
+  use Application
   @moduledoc """
-  Documentation for `Mind`.
-  """
 
-  @doc """
-  Hello world.
+"""
 
-  ## Examples
+  def start(_type, _args),
+    do: Supervisor.start_link(children(), opts())
 
-      iex> Mind.hello()
-      :world
+  defp children do
+    [
+      Mind.Endpoint
+    ]
+  end
 
-  """
-  def hello do
-    :world
+  defp opts do
+  [
+    strategy: :one_for_one,
+    name: Mind.Supervisor
+  ]
   end
 end
